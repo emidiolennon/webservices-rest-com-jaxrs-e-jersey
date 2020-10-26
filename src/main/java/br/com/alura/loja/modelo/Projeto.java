@@ -1,7 +1,13 @@
 package br.com.alura.loja.modelo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.thoughtworks.xstream.XStream;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Projeto {
 
 	private long id;
@@ -34,8 +40,13 @@ public class Projeto {
 	public int getAnoDeInicio() {
 		return anoDeInicio;
 	}
-	
+
 	public String toXML() {
 		return new XStream().toXML(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Projeto [id=" + id + ", nome=" + nome + ", anoDeInicio=" + anoDeInicio + "]";
 	}
 }
